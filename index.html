@@ -1,0 +1,35 @@
+<html ng-app="app" ng-controller="MainCtrl">
+<head>
+  <title>Name Tags</title>
+  <script src="angular.min.js"></script>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="page" ng-repeat="userGroups in userGroupGroups">
+  <div class="row" ng-repeat="group in userGroups">
+    <div class="col-xs-6 user" ng-class="{'first': $first}" ng-repeat="user in group">
+      <div class="google-io">
+          <img src="io-logo.png">
+      </div>
+      <user-image id="user.googlePlusId" email="user.email"></user-image>
+      <span class="name pull-right">
+        <span class="first-name">{{user.firstName}}</span>
+        <span class="last-name">{{user.lastName}}</span>
+        <br />
+        <span class="g-plus" ng-hide="idIsNumber(user.googlePlusId)">
+          <i class="fa fa-google-plus-square"></i> {{user.googlePlusId}}
+        </span>
+      </span>
+      <div class="sponsors">
+        <img class="left-sponsor" src="domo.png">
+        <img class="right-sponsor" src="attask.png">
+      </div>
+    </div>
+  </div>
+</div>
+<script src="csv.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
